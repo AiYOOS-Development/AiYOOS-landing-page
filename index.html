@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AiYOOS - AI-Powered Search Engine for Complex Questions</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,6 +19,13 @@
             font-family: var(--font-sans);
             background-color: #F8FAFC;
             color: #0F172A;
+        }
+        .hero-section {
+            background-image: linear-gradient(to bottom, rgba(248, 250, 252, 0.8), rgba(248, 250, 252, 0.95)),
+                              url('https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
         .font-serif-display {
             font-family: var(--font-serif);
@@ -103,10 +111,7 @@
     <nav class="w-full border-b border-slate-200/60 bg-white/70 backdrop-blur-md fixed top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center shadow-sm">
-                    <span class="text-white font-bold text-sm">Ai</span>
-                </div>
-                <span class="font-semibold text-xl tracking-tight text-slate-900">AiYOOS</span>
+                <img src="logo_light.png" width="96" height="32" alt="logo" />
             </div>
 
             <div class="hidden md:flex items-center gap-8 text-sm text-slate-600 font-medium">
@@ -117,23 +122,22 @@
             </div>
 
             <div class="flex items-center gap-4">
-                <a href="#" class="hidden md:block text-sm font-medium text-slate-600 hover:text-blue-600 transition-colors">Sign in</a>
-                <a href="#" class="text-sm font-medium bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all shadow-sm">
-                    Try AiYOOS Free
+                <a href="#waitlist" class="text-sm font-medium bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all shadow-sm">
+                    Join Waitlist
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <main class="flex-grow pt-32 pb-20 px-6">
+    <main class="hero-section flex-grow pt-32 pb-20 px-6">
         <div class="max-w-4xl mx-auto text-center mb-16">
             <div class="fade-in-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-medium mb-8">
                 <iconify-icon icon="solar:shield-check-bold" width="14"></iconify-icon>
                 <span>Privacy-First AI Search Engine</span>
             </div>
 
-            <h1 class="fade-in-up delay-100 font-serif-display text-5xl md:text-6xl lg:text-7xl leading-[1.1] text-slate-900 tracking-tight mb-6">
+            <h1 class="fade-in-up delay-100 font-serif-display text-6xl md:text-7xl lg:text-8xl leading-tight text-slate-900 tracking-tighter mb-6">
                 Stop Searching.<br><span class="gradient-text">Start Finding.</span>
             </h1>
 
@@ -142,23 +146,20 @@
             </p>
 
             <div class="fade-in-up delay-300 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <div class="relative w-full max-w-lg group">
-                    <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-blue-600 transition-colors">
-                        <iconify-icon icon="solar:magnifer-linear" width="22"></iconify-icon>
-                    </div>
-                    <input type="text" placeholder="Ask a complex question..." class="w-full bg-white border border-slate-200 rounded-xl py-4 pl-12 pr-4 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-lg shadow-slate-200/50 transition-all text-base">
-                    <div class="absolute inset-y-0 right-3 flex items-center">
-                        <button class="bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition-colors">
-                            <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
+                <form class="waitlist-form w-full max-w-lg">
+                    <div class="flex gap-3">
+                        <input type="email" name="email" placeholder="Enter your email" required class="flex-1 bg-white border border-slate-200 rounded-xl py-4 px-5 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-lg shadow-slate-200/50 transition-all text-base">
+                        <button type="submit" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200/50 whitespace-nowrap">
+                            Join Waitlist
                         </button>
                     </div>
-                </div>
+                </form>
             </div>
 
             <div class="fade-in-up delay-400 mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-500">
                 <span class="flex items-center gap-1.5">
                     <iconify-icon icon="solar:check-circle-bold" width="16" class="text-green-500"></iconify-icon>
-                    No credit card required
+                    Be first to get access
                 </span>
                 <span class="flex items-center gap-1.5">
                     <iconify-icon icon="solar:check-circle-bold" width="16" class="text-green-500"></iconify-icon>
@@ -171,185 +172,94 @@
             </div>
         </div>
 
-        <!-- UI Demo / Search Interface -->
-        <div class="fade-in-up delay-300 max-w-6xl mx-auto mt-16">
-            <div class="rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-200/40 overflow-hidden flex flex-col md:flex-row h-[600px] md:h-[650px]">
+        <!-- UI Demo / Search Interface - Redesigned to match image2.png -->
+        <div class="fade-in-up delay-300 max-w-4xl mx-auto mt-16">
+            <div class="rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-200/40 overflow-hidden">
 
-                <!-- Sidebar (Sources) -->
-                <div class="w-full md:w-72 border-r border-slate-100 bg-slate-50/50 flex flex-col">
-                    <div class="p-4 border-b border-slate-100 flex items-center justify-between">
-                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-500">Verified Sources</span>
-                        <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-medium">127</span>
-                    </div>
-                    <div class="flex-1 overflow-y-auto custom-scroll p-3 space-y-2">
-                        <!-- Source Item 1 -->
-                        <div class="source-card group p-3 rounded-xl border border-slate-200 bg-white cursor-pointer">
-                            <div class="flex items-start gap-3">
-                                <div class="mt-0.5 w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center">
-                                    <iconify-icon icon="solar:document-text-bold" width="16" class="text-emerald-600"></iconify-icon>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h4 class="text-sm font-medium text-slate-800 leading-tight mb-1 truncate">Nature Reviews: CRISPR Applications</h4>
-                                    <p class="text-xs text-slate-500 line-clamp-2">Comprehensive review of CRISPR-Cas9 therapeutic applications in gene therapy...</p>
-                                    <div class="mt-2 flex items-center gap-2">
-                                        <span class="text-[10px] bg-emerald-50 text-emerald-700 px-1.5 py-0.5 rounded font-medium">PEER-REVIEWED</span>
-                                        <span class="text-[10px] text-slate-400">2024</span>
-                                    </div>
-                                </div>
+                <!-- Search Bar -->
+                <div class="p-4 border-b border-slate-100 bg-slate-50/50">
+                    <div class="flex items-center gap-3">
+                        <div class="flex-1 relative">
+                            <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-slate-400">
+                                <iconify-icon icon="solar:magnifer-linear" width="18"></iconify-icon>
                             </div>
+                            <input type="text" value="What are the current limitations of CRISPR gene therapy?" class="w-full bg-white border border-slate-200 rounded-lg py-2.5 pl-10 pr-4 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" readonly>
                         </div>
-                        <!-- Source Item 2 -->
-                        <div class="source-card group p-3 rounded-xl border border-transparent hover:border-slate-200 hover:bg-white cursor-pointer">
-                            <div class="flex items-start gap-3">
-                                <div class="mt-0.5 w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
-                                    <iconify-icon icon="solar:database-bold" width="16" class="text-blue-600"></iconify-icon>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h4 class="text-sm font-medium text-slate-700 leading-tight mb-1 truncate">FDA Clinical Trials Database</h4>
-                                    <p class="text-xs text-slate-500 line-clamp-2">Phase III trials for genetic therapy interventions...</p>
-                                    <div class="mt-2 flex items-center gap-2">
-                                        <span class="text-[10px] bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded font-medium">REGULATORY</span>
-                                        <span class="text-[10px] text-slate-400">Updated 3d ago</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Source Item 3 -->
-                        <div class="source-card group p-3 rounded-xl border border-transparent hover:border-slate-200 hover:bg-white cursor-pointer">
-                            <div class="flex items-start gap-3">
-                                <div class="mt-0.5 w-8 h-8 rounded-lg bg-violet-50 flex items-center justify-center">
-                                    <iconify-icon icon="solar:book-2-bold" width="16" class="text-violet-600"></iconify-icon>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <h4 class="text-sm font-medium text-slate-700 leading-tight mb-1 truncate">Stanford Bioengineering Research</h4>
-                                    <p class="text-xs text-slate-500 line-clamp-2">Novel delivery mechanisms for gene editing therapeutics...</p>
-                                    <div class="mt-2 flex items-center gap-2">
-                                        <span class="text-[10px] bg-violet-50 text-violet-700 px-1.5 py-0.5 rounded font-medium">ACADEMIC</span>
-                                        <span class="text-[10px] text-slate-400">2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="p-3 border-t border-slate-100 bg-white">
-                        <button class="w-full py-2 text-xs font-medium text-slate-600 border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors flex items-center justify-center gap-2">
-                            <iconify-icon icon="solar:filter-linear" width="14"></iconify-icon>
-                            Filter 127 sources
+                        <button class="bg-blue-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                            Search
                         </button>
                     </div>
                 </div>
 
-                <!-- Main Content (Synthesis) -->
-                <div class="flex-1 flex flex-col bg-white">
-                    <!-- Header inside tool -->
-                    <div class="h-14 border-b border-slate-100 px-6 flex items-center justify-between">
+                <!-- Main Content Area -->
+                <div class="p-6 md:p-8">
+                    <!-- Query as Heading -->
+                    <h2 class="text-xl md:text-2xl font-semibold text-slate-900 mb-6">
+                        "What are the current limitations of CRISPR gene therapy?"
+                    </h2>
+
+                    <!-- Sources Row -->
+                    <div class="mb-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Sources</span>
+                        </div>
+                        <div class="flex gap-3 overflow-x-auto pb-2">
+                            <!-- Source 1 -->
+                            <div class="flex-shrink-0 min-w-[180px] max-w-[200px] rounded-xl p-4 border border-slate-100">
+                                <p class="text-xs font-medium text-blue-600 mb-0.5 truncate">nature.com</p>
+                                <p class="text-xs text-slate-500 line-clamp-2">CRISPR-Cas9 gene therapy: current limitations and future...</p>
+                            </div>
+                            <!-- Source 2 -->
+                            <div class="flex-shrink-0 min-w-[180px] max-w-[200px] rounded-xl p-4 border border-slate-100">
+                                <p class="text-xs font-medium text-blue-600 mb-0.5 truncate">cell.com</p>
+                                <p class="text-xs text-slate-500 line-clamp-2">* Off-target effects: This review discusses mitigation...</p>
+                            </div>
+                            <!-- Source 3 -->
+                            <div class="flex-shrink-0 min-w-[180px] max-w-[200px] rounded-xl p-4 border border-slate-100">
+                                <p class="text-xs font-medium text-blue-600 mb-0.5 truncate">nih.gov</p>
+                                <p class="text-xs text-slate-500 line-clamp-2">By combining these two approaches, delivery mechanisms...</p>
+                            </div>
+                            <!-- More indicator -->
+                            <div class="flex-shrink-0 flex items-center text-slate-400">
+                                <iconify-icon icon="solar:menu-dots-bold" width="20"></iconify-icon>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Answer Box -->
+                    <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
+                        <p class="text-slate-700 text-sm leading-relaxed mb-4">
+                            CRISPR-Cas9 gene therapy faces several key limitations that researchers are actively working to address. Here's a breakdown:
+                        </p>
+
+                        <ul class="space-y-4 mb-4">
+                            <li class="text-sm text-slate-700 leading-relaxed">
+                                <span class="font-semibold text-slate-900">Off-target effects:</span> This refers to unintended DNA modifications at sites other than the intended target. The CRISPR-Cas9 system can sometimes cut DNA at locations with similar sequences to the target, potentially causing harmful mutations. Current rates vary from 0.1-5% depending on guide RNA design and delivery method.
+                            </li>
+                            <li class="text-sm text-slate-700 leading-relaxed">
+                                <span class="font-semibold text-slate-900">Delivery challenges:</span> Getting CRISPR components into target cells efficiently remains difficult, particularly for in-vivo applications. Viral vectors (AAV) have size limitations, while lipid nanoparticles face issues with tissue specificity and immune responses.
+                            </li>
+                            <li class="text-sm text-slate-700 leading-relaxed">
+                                <span class="font-semibold text-slate-900">Immune responses:</span> The Cas9 protein, derived from bacteria, can trigger immune reactions in patients. Pre-existing immunity to common Cas9 variants (from S. pyogenes and S. aureus) has been detected in 58-79% of humans.
+                            </li>
+                        </ul>
+
+                        <p class="text-slate-700 text-sm leading-relaxed">
+                            By combining improved guide RNA design, novel delivery mechanisms, and next-generation editing tools like prime editing, researchers are making significant progress in overcoming these limitations. Prime editing (2023-24) has shown 90% reduction in off-target effects by using a nick-and-write mechanism rather than double-strand breaks.
+                        </p>
+                    </div>
+
+                    <!-- Follow-up Input -->
+                    <div class="mt-6">
                         <div class="flex items-center gap-3">
-                            <div class="flex items-center gap-2">
-                                <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-                                <span class="text-sm font-medium text-slate-700">Synthesis Complete</span>
-                            </div>
-                            <span class="h-4 w-px bg-slate-200"></span>
-                            <span class="text-xs text-slate-400">Multi-hop reasoning applied</span>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <button class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-                                <iconify-icon icon="solar:copy-linear" width="18"></iconify-icon>
-                            </button>
-                            <button class="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-                                <iconify-icon icon="solar:export-linear" width="18"></iconify-icon>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Answer Body -->
-                    <div class="flex-1 overflow-y-auto custom-scroll p-6 md:p-8">
-                        <div class="max-w-2xl">
-                            <!-- User Query -->
-                            <div class="mb-8 p-4 bg-slate-50 rounded-xl border border-slate-100">
-                                <p class="text-slate-700 font-medium">
-                                    What are the current limitations of CRISPR gene therapy and what recent breakthroughs address off-target effects?
-                                </p>
-                            </div>
-
-                            <!-- AI Response -->
-                            <div class="space-y-4">
-                                <div class="flex items-center gap-2 mb-4">
-                                    <div class="w-6 h-6 rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                                        <span class="text-white font-bold text-[10px]">Ai</span>
-                                    </div>
-                                    <span class="text-sm font-medium text-slate-900">AiYOOS Synthesis</span>
-                                </div>
-
-                                <div class="prose prose-slate prose-sm max-w-none">
-                                    <p class="text-slate-700 leading-relaxed">
-                                        Based on analysis of <span class="bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded text-xs font-medium cursor-pointer hover:bg-blue-100">127 peer-reviewed sources</span>, CRISPR-Cas9 gene therapy faces three primary limitations:
-                                    </p>
-
-                                    <div class="mt-4 space-y-3">
-                                        <div class="flex gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                                            <div class="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                <span class="text-amber-700 font-semibold text-xs">1</span>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-medium text-slate-800 text-sm">Off-target mutations</h4>
-                                                <p class="text-slate-600 text-sm mt-1">Unintended DNA cuts remain the primary safety concern, with rates varying from 0.1-5% depending on guide RNA design.</p>
-                                                <div class="mt-2 flex gap-2">
-                                                    <span class="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full cursor-pointer hover:bg-emerald-100">[1] Nature 2024</span>
-                                                    <span class="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full cursor-pointer hover:bg-emerald-100">[2] Cell 2023</span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="flex gap-3 p-3 bg-slate-50 rounded-lg border border-slate-100">
-                                            <div class="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                                <span class="text-amber-700 font-semibold text-xs">2</span>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-medium text-slate-800 text-sm">Delivery efficiency</h4>
-                                                <p class="text-slate-600 text-sm mt-1">Getting CRISPR components into target cells remains challenging, particularly for in-vivo applications.</p>
-                                                <div class="mt-2">
-                                                    <span class="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full cursor-pointer hover:bg-emerald-100">[3] Science 2024</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-100">
-                                        <div class="flex items-start gap-3">
-                                            <iconify-icon icon="solar:lightbulb-bolt-bold" width="20" class="text-blue-600 mt-0.5"></iconify-icon>
-                                            <div>
-                                                <h4 class="font-medium text-blue-900 text-sm">Recent Breakthrough</h4>
-                                                <p class="text-blue-800 text-sm mt-1">Prime editing (2023-24) reduces off-target effects by 90% using a nick-and-write mechanism rather than double-strand breaks.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Input Area -->
-                    <div class="p-4 border-t border-slate-100 bg-slate-50/50">
-                        <div class="max-w-2xl relative">
-                            <input type="text" placeholder="Ask a follow-up question..." class="w-full bg-white border border-slate-200 rounded-xl py-3 pl-4 pr-12 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            <button class="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-blue-600 rounded-lg text-white hover:bg-blue-700 transition-colors">
-                                <iconify-icon icon="solar:arrow-right-linear" width="16"></iconify-icon>
+                            <input type="text" placeholder="Ask a follow-up question..." class="flex-1 bg-white border border-slate-200 rounded-lg py-2.5 px-4 text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <button class="bg-blue-600 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors flex items-center gap-2">
+                                <iconify-icon icon="solar:chat-round-dots-bold" width="16"></iconify-icon>
+                                Ask
                             </button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- Trusted By -->
-        <div class="mt-24 text-center">
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-8">Trusted by knowledge professionals worldwide</p>
-            <div class="flex flex-wrap justify-center gap-x-12 gap-y-4 opacity-50 grayscale hover:grayscale-0 hover:opacity-70 transition-all duration-500">
-                <span class="font-serif-display text-xl text-slate-700">Stanford Research</span>
-                <span class="font-sans font-semibold text-lg text-slate-700">MIT</span>
-                <span class="font-serif-display text-xl text-slate-700">Harvard Law</span>
-                <span class="font-sans font-semibold text-lg text-slate-700">McKinsey</span>
-                <span class="font-serif-display text-xl text-slate-700">Nature Group</span>
             </div>
         </div>
     </main>
@@ -366,7 +276,7 @@
                 <!-- Feature 1 -->
                 <div class="group p-8 rounded-2xl border border-slate-100 hover:border-blue-200 hover:bg-blue-50/30 transition-all duration-300">
                     <div class="w-14 h-14 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
-                        <iconify-icon icon="solar:brain-bold" width="28" class="text-blue-600 group-hover:text-white transition-colors duration-300"></iconify-icon>
+                        <iconify-icon icon="ph:brain-bold" width="28" class="text-blue-600 group-hover:text-white transition-colors duration-300"></iconify-icon>
                     </div>
                     <h3 class="font-semibold text-xl text-slate-900 mb-3">Semantic Understanding</h3>
                     <p class="text-slate-600 text-sm leading-relaxed">
@@ -498,10 +408,6 @@
                         <div class="mt-8 pt-6 border-t border-slate-100 flex gap-3">
                             <div class="flex items-center gap-2 text-xs text-slate-500">
                                 <iconify-icon icon="solar:verified-check-bold" width="16" class="text-green-500"></iconify-icon>
-                                SOC 2 Type II
-                            </div>
-                            <div class="flex items-center gap-2 text-xs text-slate-500">
-                                <iconify-icon icon="solar:verified-check-bold" width="16" class="text-green-500"></iconify-icon>
                                 GDPR
                             </div>
                             <div class="flex items-center gap-2 text-xs text-slate-500">
@@ -597,8 +503,8 @@
                         </div>
                     </div>
 
-                    <a href="#" class="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-100 transition-colors">
-                        Request Enterprise Demo
+                    <a href="#waitlist" class="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-100 transition-colors">
+                        Join Enterprise Waitlist
                         <iconify-icon icon="solar:arrow-right-linear" width="18"></iconify-icon>
                     </a>
                 </div>
@@ -630,20 +536,21 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-blue-600">
+    <section id="waitlist" class="py-20 bg-blue-600">
         <div class="max-w-3xl mx-auto px-6 text-center">
-            <h2 class="font-serif-display text-4xl md:text-5xl text-white mb-6 tracking-tight">Search Smarter Today</h2>
-            <p class="text-blue-100 mb-8 text-lg">Stop wasting hours on irrelevant results. Start finding evidence-backed answers in seconds.</p>
+            <h2 class="font-serif-display text-4xl md:text-5xl text-white mb-6 tracking-tight">Join the Waitlist</h2>
+            <p class="text-blue-100 mb-8 text-lg">Be among the first to experience AI search built for complex questions. No commitment required.</p>
 
-            <form class="max-w-md mx-auto">
+            <form class="waitlist-form max-w-md mx-auto">
                 <div class="flex gap-2">
-                    <input type="email" placeholder="Enter work email" class="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur">
+                    <input type="email" name="email" placeholder="Enter your email" required class="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur">
                     <button type="submit" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors whitespace-nowrap">
-                        Try Free
+                        Join Waitlist
                     </button>
                 </div>
-                <p class="text-blue-200 text-xs mt-4">No credit card required. Your data stays private.</p>
             </form>
+
+            <p class="text-blue-200 text-xs mt-4">Be first to get early access. Your data stays private.</p>
         </div>
     </section>
 
@@ -653,24 +560,21 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="md:col-span-1">
                     <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-sm">Ai</span>
-                        </div>
-                        <span class="font-semibold text-xl tracking-tight">AiYOOS</span>
+                        <img src="logo_dark.png" width="96" height="32" alt="logo" />
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed mb-4">
                         All is Yes, Open Or Search.<br/>
-                        The AI-powered search engine for complex questions.
+                        Searching just became easier
                     </p>
                     <div class="flex gap-3">
-                        <a href="#" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
-                            <iconify-icon icon="mdi:twitter" width="16" class="text-slate-400"></iconify-icon>
+                        <a href="https://x.com/AiYOOSSearch" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <iconify-icon icon="prime:twitter" width="16" class="text-slate-400"></iconify-icon>
                         </a>
-                        <a href="#" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+                        <a href="https://www.linkedin.com/company/aiyoos" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
                             <iconify-icon icon="mdi:linkedin" width="16" class="text-slate-400"></iconify-icon>
                         </a>
-                        <a href="#" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
-                            <iconify-icon icon="mdi:github" width="16" class="text-slate-400"></iconify-icon>
+                        <a href="https://discord.gg/EHbt3EFw" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors">
+                            <iconify-icon icon="prime:discord" width="16" class="text-slate-400"></iconify-icon>
                         </a>
                     </div>
                 </div>
@@ -678,51 +582,96 @@
                 <div>
                     <h4 class="font-semibold text-xs uppercase tracking-wider mb-4 text-slate-300">Product</h4>
                     <ul class="space-y-3 text-sm text-slate-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Features</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Enterprise</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">API</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="/#features" class="hover:text-white transition-colors">Features</a></li>
+                        <li><a href="/#enterprise" class="hover:text-white transition-colors">Enterprise</a></li>
+                        <li><a href="/#" class="hover:text-white transition-colors">API</a></li>
+                        <li><a href="/#" class="hover:text-white transition-colors">Pricing</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="font-semibold text-xs uppercase tracking-wider mb-4 text-slate-300">Company</h4>
                     <ul class="space-y-3 text-sm text-slate-400">
-                        <li><a href="#" class="hover:text-white transition-colors">About</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="/about" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="/#" class="hover:text-white transition-colors">Careers</a></li>
+                        <li><a href="/#" class="hover:text-white transition-colors">Blog</a></li>
+                        <li><a href="/#" class="hover:text-white transition-colors">Contact</a></li>
                     </ul>
                 </div>
 
                 <div>
                     <h4 class="font-semibold text-xs uppercase tracking-wider mb-4 text-slate-300">Legal</h4>
                     <ul class="space-y-3 text-sm text-slate-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Security</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Compliance</a></li>
+                        <li><a href="/privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="/terms-of-use" class="hover:text-white transition-colors">Terms of Use</a></li>
+                        <li><a href="/#" class="hover:text-white transition-colors">Security</a></li>
+                        <li><a href="/#" class="hover:text-white transition-colors">Compliance</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-slate-500 text-sm">
-                    © 2024 AiYOOS Inc. All rights reserved.
+                    © 2026 AiYOOS Inc. All rights reserved.
                 </p>
                 <div class="flex items-center gap-6">
                     <div class="flex items-center gap-2 text-xs text-slate-500">
                         <iconify-icon icon="solar:shield-check-bold" width="14" class="text-green-500"></iconify-icon>
-                        SOC 2 Type II Certified
+                        GDPR Compliant
                     </div>
                     <div class="flex items-center gap-2 text-xs text-slate-500">
                         <iconify-icon icon="solar:shield-check-bold" width="14" class="text-green-500"></iconify-icon>
-                        GDPR Compliant
+                        CCPA Compliant
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script>
+        const handleFormSubmit = async (event) => {
+            event.preventDefault();
+
+            const form = event.target;
+
+            const message = document.createElement('p');
+            form.appendChild(message);
+
+            const formData = new FormData(form);
+            const email = formData.get('email');
+
+            try {
+                const res = await fetch('https://script.google.com/macros/s/AKfycbwz-6xiYl1dhG-aexVplvYROKwXh70d5ePpWwpkJrtwq4H5-25n1g2f02zp2LW9PGfh/exec', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify({
+                        email,
+                        userAgent: navigator.userAgent
+                    })
+                });
+
+                const data = await res.json();
+
+                if (data.success) {
+                    message.textContent = 'Thanks for joining!';
+                    form.reset();
+                } else {
+                    message.textContent = data.error || 'Something went wrong.';
+                }
+            } catch (err) {
+                message.textContent = 'Network error. Try again later.';
+            } finally {
+                setTimeout(() => {
+                    message.textContent = '';
+                }, 2000);
+            }
+        };
+
+        document.addEventListener('submit', async (event) => {
+            if (event.target.matches('.waitlist-form')) {
+                await handleFormSubmit(event);
+            }
+        });
+    </script>
 </body>
 </html>
