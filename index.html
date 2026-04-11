@@ -49,37 +49,17 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --font-serif: 'Source Serif 4', serif;
-            --font-sans: 'Inter', sans-serif;
+            --font-sans: 'Outfit', sans-serif;
         }
         body {
             font-family: var(--font-sans);
-            background-color: #F8FAFC;
-            color: #0F172A;
-        }
-        .hero-section {
-            background-image: linear-gradient(to bottom, rgba(248, 250, 252, 0.8), rgba(248, 250, 252, 0.95)),
-                              url('https://images.unsplash.com/photo-1639322537228-f710d846310a?auto=format&fit=crop&q=80&w=2000');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
         }
         .font-serif-display {
-            font-family: var(--font-serif);
-        }
-        /* Custom Scrollbar */
-        .custom-scroll::-webkit-scrollbar {
-            width: 4px;
-        }
-        .custom-scroll::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .custom-scroll::-webkit-scrollbar-thumb {
-            background: #CBD5E1;
-            border-radius: 2px;
+            font-family: var(--font-sans);
+            font-weight: 800;
         }
         /* Custom Selection */
         ::selection {
@@ -98,54 +78,21 @@
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
-        .delay-400 { animation-delay: 0.4s; }
-
-        /* Custom Toggle Switch */
-        .toggle-checkbox:checked {
-            right: 0;
-            border-color: #1E40AF;
-        }
-        .toggle-checkbox:checked + .toggle-label {
-            background-color: #1E40AF;
-        }
-
         /* Subtle Gradient Mesh */
         .mesh-bg {
             background-image:
-                radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
-                radial-gradient(at 0% 100%, rgba(99, 102, 241, 0.06) 0px, transparent 50%);
+                radial-gradient(at 85% 8%, rgba(37, 99, 235, 0.05) 0px, transparent 55%);
         }
-
-        /* Typing cursor animation */
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s infinite;
-            color: #3B82F6;
+        /* Feature row hover */
+        .feature-row {
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-
-        /* Gradient text */
-        .gradient-text {
-            background: linear-gradient(135deg, #1E40AF 0%, #3B82F6 50%, #1E40AF 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Source card hover */
-        .source-card {
-            transition: all 0.2s ease;
-        }
-        .source-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        .feature-row:hover {
+            transform: translateX(6px);
         }
     </style>
 </head>
-<body class="antialiased min-h-screen flex flex-col mesh-bg overflow-x-hidden">
+<body class="antialiased min-h-screen flex flex-col mesh-bg overflow-x-hidden bg-slate-50 text-slate-900">
 
     <!-- Navigation -->
     <nav class="w-full border-b border-slate-200/60 bg-white/70 backdrop-blur-md fixed top-0 z-50">
@@ -169,136 +116,129 @@
     </nav>
 
     <!-- Hero Section -->
-    <main class="hero-section flex-grow pt-32 pb-20 px-6">
-        <div class="max-w-4xl mx-auto text-center mb-16">
-            <div class="fade-in-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-medium mb-8">
-                <iconify-icon icon="solar:shield-check-bold" width="14" aria-hidden="true"></iconify-icon>
-                <span>Privacy-First AI Search Engine</span>
-            </div>
+    <main class="bg-slate-50 min-h-[100dvh] flex items-center pt-16">
+        <div class="max-w-7xl mx-auto px-6 w-full py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 xl:gap-20 items-center">
 
-            <h1 class="fade-in-up delay-100 font-serif-display text-6xl md:text-7xl lg:text-8xl leading-tight text-slate-900 tracking-tighter mb-6">
-                Stop Searching.<br><span class="gradient-text">Start Finding.</span>
-            </h1>
-
-            <p class="fade-in-up delay-200 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-light">
-                The AI-powered search engine built for complex questions. Semantic understanding, multi-source synthesis, and evidence-backed answers—with complete privacy control.
-            </p>
-
-            <div class="fade-in-up delay-300 mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <form class="waitlist-form w-full max-w-lg">
-                    <div class="flex flex-col sm:flex-row gap-3">
-                        <input type="email" name="email" placeholder="Enter your email" required class="flex-1 bg-white border border-slate-200 rounded-xl py-4 px-5 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-lg shadow-slate-200/50 transition-all text-base">
-                        <button type="submit" class="bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200/50 whitespace-nowrap">
-                            Join Waitlist
-                        </button>
+                <!-- Left: Headline + CTA -->
+                <div>
+                    <div class="fade-in-up inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-100 text-blue-700 text-xs font-medium mb-8">
+                        <iconify-icon icon="solar:shield-check-bold" width="14" aria-hidden="true"></iconify-icon>
+                        <span>Privacy-First AI Search Engine</span>
                     </div>
-                </form>
-            </div>
 
-            <div class="fade-in-up delay-400 mt-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-slate-500">
-                <span class="flex items-center gap-1.5">
-                    <iconify-icon icon="solar:check-circle-bold" width="16" class="text-green-500" aria-hidden="true"></iconify-icon>
-                    Be first to get access
-                </span>
-                <span class="flex items-center gap-1.5">
-                    <iconify-icon icon="solar:check-circle-bold" width="16" class="text-green-500" aria-hidden="true"></iconify-icon>
-                    Zero data tracking
-                </span>
-                <span class="flex items-center gap-1.5">
-                    <iconify-icon icon="solar:check-circle-bold" width="16" class="text-green-500" aria-hidden="true"></iconify-icon>
-                    Traceable citations
-                </span>
-            </div>
-        </div>
+                    <h1 class="fade-in-up delay-100 font-serif-display text-5xl md:text-6xl xl:text-7xl leading-none text-slate-900 tracking-tighter mb-6">
+                        Stop Searching.<br><span class="text-blue-700">Start Finding.</span>
+                    </h1>
 
-        <!-- UI Demo / Search Interface - Redesigned to match image2.png -->
-        <div class="fade-in-up delay-300 max-w-4xl mx-auto mt-16">
-            <div class="rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-200/40 overflow-hidden">
+                    <p class="fade-in-up delay-200 text-lg text-slate-600 max-w-[52ch] leading-relaxed font-light mb-10">
+                        The AI-powered search engine built for complex questions. Semantic understanding, multi-source synthesis, and evidence-backed answers—with complete privacy control.
+                    </p>
 
-                <!-- Search Bar -->
-                <div class="p-4 border-b border-slate-100 bg-slate-50/50">
-                    <div class="flex items-center gap-3">
-                        <div class="flex-1 relative">
-                            <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-slate-400">
-                                <iconify-icon icon="solar:magnifer-linear" width="18" aria-hidden="true"></iconify-icon>
+                    <div class="fade-in-up delay-300 mb-5">
+                        <form class="waitlist-form">
+                            <div class="flex flex-col sm:flex-row gap-3 w-full max-w-md">
+                                <input type="email" name="email" placeholder="Enter your email" required class="flex-1 min-w-0 bg-white border border-slate-200 rounded-xl py-3.5 px-5 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm transition-all text-base">
+                                <button type="submit" class="flex-shrink-0 bg-blue-600 text-white px-6 py-3.5 rounded-xl font-semibold hover:bg-blue-700 active:scale-[0.98] transition-all whitespace-nowrap">
+                                    Join Waitlist
+                                </button>
                             </div>
-                            <input type="text" value="What are the current limitations of CRISPR gene therapy?" class="w-full bg-white border border-slate-200 rounded-lg py-2.5 pl-10 pr-4 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" readonly>
-                        </div>
-                        <button class="bg-blue-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
-                            Search
-                        </button>
+                        </form>
+                    </div>
+
+                    <div class="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500">
+                        <span class="fade-in-up flex items-center gap-1.5" style="animation-delay: 0.32s">
+                            <iconify-icon icon="solar:check-circle-bold" width="16" class="text-green-500" aria-hidden="true"></iconify-icon>
+                            Be first to get access
+                        </span>
+                        <span class="fade-in-up flex items-center gap-1.5" style="animation-delay: 0.44s">
+                            <iconify-icon icon="solar:check-circle-bold" width="16" class="text-green-500" aria-hidden="true"></iconify-icon>
+                            Zero data tracking
+                        </span>
+                        <span class="fade-in-up flex items-center gap-1.5" style="animation-delay: 0.56s">
+                            <iconify-icon icon="solar:check-circle-bold" width="16" class="text-green-500" aria-hidden="true"></iconify-icon>
+                            Traceable citations
+                        </span>
                     </div>
                 </div>
 
-                <!-- Main Content Area -->
-                <div class="p-6 md:p-8">
-                    <!-- Query as Heading -->
-                    <h2 class="text-xl md:text-2xl font-semibold text-slate-900 mb-6">
-                        "What are the current limitations of CRISPR gene therapy?"
-                    </h2>
+                <!-- Right: UI Demo -->
+                <div class="fade-in-up delay-200">
+                    <div class="rounded-2xl border border-slate-200 bg-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden">
 
-                    <!-- Sources Row -->
-                    <div class="mb-6">
-                        <div class="flex items-center gap-2 mb-3">
-                            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Sources</span>
-                        </div>
-                        <div class="flex gap-3 overflow-x-auto pb-2">
-                            <!-- Source 1 -->
-                            <div class="flex-shrink-0 min-w-[180px] max-w-[200px] rounded-xl p-4 border border-slate-100">
-                                <p class="text-xs font-medium text-blue-600 mb-0.5 truncate">nature.com</p>
-                                <p class="text-xs text-slate-500 line-clamp-2">CRISPR-Cas9 gene therapy: current limitations and future...</p>
-                            </div>
-                            <!-- Source 2 -->
-                            <div class="flex-shrink-0 min-w-[180px] max-w-[200px] rounded-xl p-4 border border-slate-100">
-                                <p class="text-xs font-medium text-blue-600 mb-0.5 truncate">cell.com</p>
-                                <p class="text-xs text-slate-500 line-clamp-2">* Off-target effects: This review discusses mitigation...</p>
-                            </div>
-                            <!-- Source 3 -->
-                            <div class="flex-shrink-0 min-w-[180px] max-w-[200px] rounded-xl p-4 border border-slate-100">
-                                <p class="text-xs font-medium text-blue-600 mb-0.5 truncate">nih.gov</p>
-                                <p class="text-xs text-slate-500 line-clamp-2">By combining these two approaches, delivery mechanisms...</p>
-                            </div>
-                            <!-- More indicator -->
-                            <div class="flex-shrink-0 flex items-center text-slate-400">
-                                <iconify-icon icon="solar:menu-dots-bold" width="20" aria-hidden="true"></iconify-icon>
+                        <!-- Search Bar -->
+                        <div class="p-4 border-b border-slate-100 bg-slate-50/50">
+                            <div class="flex items-center gap-3">
+                                <div class="flex-1 relative">
+                                    <div class="absolute inset-y-0 left-3 flex items-center pointer-events-none text-slate-400">
+                                        <iconify-icon icon="solar:magnifer-linear" width="18" aria-hidden="true"></iconify-icon>
+                                    </div>
+                                    <input type="text" id="demo-query-input" value="" placeholder="Ask a complex question..." class="w-full bg-white border border-slate-200 rounded-lg py-2.5 pl-10 pr-4 text-sm text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" readonly>
+                                </div>
+                                <button class="bg-blue-600 text-white px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors">
+                                    Search
+                                </button>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Answer Box -->
-                    <div class="bg-slate-50 rounded-xl p-6 border border-slate-100">
-                        <p class="text-slate-700 text-sm leading-relaxed mb-4">
-                            CRISPR-Cas9 gene therapy faces several key limitations that researchers are actively working to address. Here's a breakdown:
-                        </p>
+                        <!-- Content -->
+                        <div class="p-6">
+                            <h2 class="text-sm font-semibold text-slate-900 mb-5 leading-snug">
+                                "What are the current limitations of CRISPR gene therapy?"
+                            </h2>
 
-                        <ul class="space-y-4 mb-4">
-                            <li class="text-sm text-slate-700 leading-relaxed">
-                                <span class="font-semibold text-slate-900">Off-target effects:</span> This refers to unintended DNA modifications at sites other than the intended target. The CRISPR-Cas9 system can sometimes cut DNA at locations with similar sequences to the target, potentially causing harmful mutations. Current rates vary from 0.1-5% depending on guide RNA design and delivery method.
-                            </li>
-                            <li class="text-sm text-slate-700 leading-relaxed">
-                                <span class="font-semibold text-slate-900">Delivery challenges:</span> Getting CRISPR components into target cells efficiently remains difficult, particularly for in-vivo applications. Viral vectors (AAV) have size limitations, while lipid nanoparticles face issues with tissue specificity and immune responses.
-                            </li>
-                            <li class="text-sm text-slate-700 leading-relaxed">
-                                <span class="font-semibold text-slate-900">Immune responses:</span> The Cas9 protein, derived from bacteria, can trigger immune reactions in patients. Pre-existing immunity to common Cas9 variants (from S. pyogenes and S. aureus) has been detected in 58-79% of humans.
-                            </li>
-                        </ul>
+                            <!-- Sources Row -->
+                            <div class="mb-5">
+                                <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Sources</span>
+                                <div class="flex gap-2 mt-2 overflow-x-hidden">
+                                    <div class="flex-shrink-0 w-36 rounded-lg p-3 border border-slate-100">
+                                        <p class="text-xs font-medium text-blue-600 truncate">nature.com</p>
+                                        <p class="text-xs text-slate-400 mt-0.5 line-clamp-1">CRISPR-Cas9: current limitations...</p>
+                                    </div>
+                                    <div class="flex-shrink-0 w-36 rounded-lg p-3 border border-slate-100">
+                                        <p class="text-xs font-medium text-blue-600 truncate">cell.com</p>
+                                        <p class="text-xs text-slate-400 mt-0.5 line-clamp-1">Off-target effects: mitigation...</p>
+                                    </div>
+                                    <div class="flex-shrink-0 w-36 rounded-lg p-3 border border-slate-100">
+                                        <p class="text-xs font-medium text-blue-600 truncate">nih.gov</p>
+                                        <p class="text-xs text-slate-400 mt-0.5 line-clamp-1">Delivery mechanisms overview...</p>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <p class="text-slate-700 text-sm leading-relaxed">
-                            By combining improved guide RNA design, novel delivery mechanisms, and next-generation editing tools like prime editing, researchers are making significant progress in overcoming these limitations. Prime editing (2023-24) has shown 90% reduction in off-target effects by using a nick-and-write mechanism rather than double-strand breaks.
-                        </p>
-                    </div>
+                            <!-- Answer Preview (faded) -->
+                            <div class="relative">
+                                <div class="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                                    <ul class="space-y-3">
+                                        <li class="text-xs text-slate-700 leading-relaxed">
+                                            <span class="font-semibold text-slate-900">Off-target effects:</span> Unintended DNA modifications at sites other than the intended target. Current rates vary from 0.1–5% depending on guide RNA design.
+                                        </li>
+                                        <li class="text-xs text-slate-700 leading-relaxed">
+                                            <span class="font-semibold text-slate-900">Delivery challenges:</span> Getting CRISPR components into target cells efficiently remains difficult. Viral vectors (AAV) have size limitations; lipid nanoparticles face tissue specificity issues.
+                                        </li>
+                                        <li class="text-xs text-slate-600 leading-relaxed opacity-50">
+                                            <span class="font-semibold">Immune responses:</span> The Cas9 protein can trigger immune reactions. Pre-existing immunity detected in 58–79% of humans...
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Fade overlay -->
+                                <div class="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white to-transparent rounded-b-xl pointer-events-none"></div>
+                            </div>
 
-                    <!-- Follow-up Input -->
-                    <div class="mt-6">
-                        <div class="flex items-center gap-3">
-                            <input type="text" placeholder="Ask a follow-up question..." class="flex-1 bg-white border border-slate-200 rounded-lg py-2.5 px-4 text-sm text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                            <button class="bg-blue-600 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors flex items-center gap-2">
-                                <iconify-icon icon="solar:chat-round-dots-bold" width="16" aria-hidden="true"></iconify-icon>
-                                Ask
-                            </button>
+                            <!-- Follow-up Input -->
+                            <div class="mt-4">
+                                <div class="flex items-center gap-2">
+                                    <input type="text" placeholder="Ask a follow-up question..." class="flex-1 bg-white border border-slate-200 rounded-lg py-2 px-3 text-xs text-slate-700 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <button class="bg-blue-600 text-white px-3 py-2 rounded-lg text-xs font-medium hover:bg-blue-700 transition-colors flex items-center gap-1.5">
+                                        <iconify-icon icon="solar:chat-round-dots-bold" width="14" aria-hidden="true"></iconify-icon>
+                                        Ask
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </main>
@@ -306,43 +246,64 @@
     <!-- Features Section -->
     <section id="features" class="py-24 bg-white border-t border-slate-100">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="font-serif-display text-4xl md:text-5xl text-slate-900 mb-4 tracking-tight">Built for Hard Questions</h2>
-                <p class="text-slate-600 max-w-2xl mx-auto">AiYOOS is purpose-built for professionals who need accurate, evidence-backed answers—not a list of links.</p>
-            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-16 items-start">
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
-                <div class="group p-8 rounded-2xl border border-slate-100 hover:border-blue-200 hover:bg-blue-50/30 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
-                        <iconify-icon icon="ph:brain-bold" width="28" class="text-blue-600 group-hover:text-white transition-colors duration-300" aria-hidden="true"></iconify-icon>
+                <!-- Left: Pinned label -->
+                <div class="lg:sticky lg:top-24">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-medium mb-5">
+                        <iconify-icon icon="ph:stack-bold" width="14" aria-hidden="true"></iconify-icon>
+                        <span>Capabilities</span>
                     </div>
-                    <h3 class="font-semibold text-xl text-slate-900 mb-3">Semantic Understanding</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Understands what you mean, not just what you type. Multi-hop reasoning synthesizes insights across hundreds of sources in seconds.
+                    <h2 class="font-serif-display text-4xl md:text-5xl text-slate-900 tracking-tighter leading-none">
+                        Built for<br/>Hard Questions.
+                    </h2>
+                    <p class="text-slate-500 mt-6 text-base leading-relaxed max-w-[34ch]">
+                        Purpose-built for professionals who need accurate, evidence-backed answers—not a list of links.
                     </p>
                 </div>
 
-                <!-- Feature 2 -->
-                <div class="group p-8 rounded-2xl border border-slate-100 hover:border-blue-200 hover:bg-blue-50/30 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
-                        <iconify-icon icon="solar:link-bold" width="28" class="text-blue-600 group-hover:text-white transition-colors duration-300" aria-hidden="true"></iconify-icon>
-                    </div>
-                    <h3 class="font-semibold text-xl text-slate-900 mb-3">Traceable Citations</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Every claim linked to its source. Methodologies, conclusions, citations—structured for professionals who need accuracy they can verify.
-                    </p>
-                </div>
+                <!-- Right: Feature rows — top-padded to align with H2, not pill -->
+                <div class="divide-y divide-slate-100 lg:pt-11">
 
-                <!-- Feature 3 -->
-                <div class="group p-8 rounded-2xl border border-slate-100 hover:border-blue-200 hover:bg-blue-50/30 transition-all duration-300">
-                    <div class="w-14 h-14 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center mb-6 group-hover:bg-blue-600 transition-colors duration-300">
-                        <iconify-icon icon="solar:documents-bold" width="28" class="text-blue-600 group-hover:text-white transition-colors duration-300" aria-hidden="true"></iconify-icon>
+                    <!-- Feature 1 -->
+                    <div class="feature-row py-10 flex items-start gap-6">
+                        <div class="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <iconify-icon icon="ph:brain-bold" width="22" class="text-blue-600" aria-hidden="true"></iconify-icon>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-slate-900 mb-2 tracking-tight">Semantic Understanding</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed max-w-[52ch]">
+                                Understands what you mean, not just what you type. Multi-hop reasoning synthesizes insights across hundreds of sources in seconds.
+                            </p>
+                        </div>
                     </div>
-                    <h3 class="font-semibold text-xl text-slate-900 mb-3">Multimodal Processing</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">
-                        Analyze PDFs, research papers, legal documents, datasets, and images. Cross-source synthesis across document types.
-                    </p>
+
+                    <!-- Feature 2 -->
+                    <div class="feature-row py-10 flex items-start gap-6">
+                        <div class="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <iconify-icon icon="solar:link-bold" width="22" class="text-blue-600" aria-hidden="true"></iconify-icon>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-slate-900 mb-2 tracking-tight">Traceable Citations</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed max-w-[52ch]">
+                                Every claim linked to its source. Methodologies, conclusions, citations—structured for professionals who need accuracy they can verify.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="feature-row py-10 flex items-start gap-6">
+                        <div class="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <iconify-icon icon="solar:documents-bold" width="22" class="text-blue-600" aria-hidden="true"></iconify-icon>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-lg text-slate-900 mb-2 tracking-tight">Multimodal Processing</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed max-w-[52ch]">
+                                Analyze PDFs, research papers, legal documents, datasets, and images. Cross-source synthesis across document types.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -462,134 +423,186 @@
 
     <!-- Focus Section -->
     <section class="py-24 bg-white border-t border-slate-100">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-100 text-amber-700 text-xs font-medium mb-6">
-                <iconify-icon icon="solar:target-bold" width="14" aria-hidden="true"></iconify-icon>
-                <span>The "No Yahoo Principle"</span>
-            </div>
-            <h2 class="font-serif-display text-4xl md:text-5xl text-slate-900 mb-6 tracking-tight">
-                One Mission: Search Excellence.
-            </h2>
-            <p class="text-slate-600 text-lg leading-relaxed mb-12 max-w-2xl mx-auto">
-                We will never become Yahoo. No email, no social media, no distractions. AiYOOS is committed to being the world's most accurate AI search engine—nothing more, nothing less.
-            </p>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
-                    <iconify-icon icon="solar:magnifer-bold" width="32" class="text-blue-600 mb-3" aria-hidden="true"></iconify-icon>
-                    <p class="text-sm font-medium text-slate-800">AI Search</p>
-                    <p class="text-xs text-green-600 mt-1">Always</p>
+                <!-- Left: Principle statement -->
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-100 text-amber-700 text-xs font-medium mb-6">
+                        <iconify-icon icon="solar:target-bold" width="14" aria-hidden="true"></iconify-icon>
+                        <span>The "No Yahoo Principle"</span>
+                    </div>
+                    <h2 class="font-serif-display text-4xl md:text-5xl text-slate-900 tracking-tighter leading-none mb-6">
+                        One Mission:<br/>Search Excellence.
+                    </h2>
+                    <p class="text-slate-500 text-base leading-relaxed max-w-[46ch]">
+                        We will never become Yahoo. No email, no social, no distractions. AiYOOS is committed to being the world's most accurate AI search engine—nothing more, nothing less.
+                    </p>
                 </div>
-                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
-                    <iconify-icon icon="solar:mailbox-bold" width="32" class="text-slate-300 mb-3" aria-hidden="true"></iconify-icon>
-                    <p class="text-sm font-medium text-slate-400">Email</p>
-                    <p class="text-xs text-red-500 mt-1">Never</p>
-                </div>
-                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
-                    <iconify-icon icon="solar:users-group-rounded-bold" width="32" class="text-slate-300 mb-3" aria-hidden="true"></iconify-icon>
-                    <p class="text-sm font-medium text-slate-400">Social</p>
-                    <p class="text-xs text-red-500 mt-1">Never</p>
-                </div>
-                <div class="p-6 rounded-xl bg-slate-50 border border-slate-100">
-                    <iconify-icon icon="solar:shop-2-bold" width="32" class="text-slate-300 mb-3" aria-hidden="true"></iconify-icon>
-                    <p class="text-sm font-medium text-slate-400">E-commerce</p>
-                    <p class="text-xs text-red-500 mt-1">Never</p>
+
+                <!-- Right: Commitment rows -->
+                <div class="divide-y divide-slate-100">
+
+                    <div class="pt-0 pb-6 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <iconify-icon icon="solar:magnifer-bold" width="18" class="text-blue-600" aria-hidden="true"></iconify-icon>
+                            <span class="text-sm font-semibold text-slate-900">AI Search</span>
+                        </div>
+                        <span class="text-xs font-semibold text-green-700 bg-green-50 border border-green-100 px-3 py-1 rounded-full">Always</span>
+                    </div>
+
+                    <div class="py-6 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <iconify-icon icon="solar:mailbox-bold" width="18" class="text-slate-300" aria-hidden="true"></iconify-icon>
+                            <span class="text-sm font-medium text-slate-400">Email</span>
+                        </div>
+                        <span class="text-xs font-medium text-slate-400 bg-slate-100 px-3 py-1 rounded-full">Never</span>
+                    </div>
+
+                    <div class="py-6 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <iconify-icon icon="solar:users-group-rounded-bold" width="18" class="text-slate-300" aria-hidden="true"></iconify-icon>
+                            <span class="text-sm font-medium text-slate-400">Social Media</span>
+                        </div>
+                        <span class="text-xs font-medium text-slate-400 bg-slate-100 px-3 py-1 rounded-full">Never</span>
+                    </div>
+
+                    <div class="py-6 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <iconify-icon icon="solar:shop-2-bold" width="18" class="text-slate-300" aria-hidden="true"></iconify-icon>
+                            <span class="text-sm font-medium text-slate-400">E-commerce</span>
+                        </div>
+                        <span class="text-xs font-medium text-slate-400 bg-slate-100 px-3 py-1 rounded-full">Never</span>
+                    </div>
+
+                    <div class="pt-6 pb-0 flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <iconify-icon icon="solar:target-bold" width="18" class="text-slate-300" aria-hidden="true"></iconify-icon>
+                            <span class="text-sm font-medium text-slate-400">Advertising</span>
+                        </div>
+                        <span class="text-xs font-medium text-slate-400 bg-slate-100 px-3 py-1 rounded-full">Never</span>
+                    </div>
+
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Enterprise Section -->
-    <section id="enterprise" class="py-24 bg-gradient-to-b from-slate-900 to-slate-800 text-white">
+    <section id="enterprise" class="py-24 bg-slate-950 text-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+                <!-- Left: Copy -->
                 <div>
-                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/90 text-xs font-medium mb-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/80 text-xs font-medium mb-6">
                         <iconify-icon icon="solar:buildings-3-bold" width="14" aria-hidden="true"></iconify-icon>
                         <span>Enterprise Solutions</span>
                     </div>
-                    <h2 class="font-serif-display text-4xl md:text-5xl text-white mb-6 tracking-tight">
-                        Search infrastructure for institutions.
+                    <h2 class="font-serif-display text-4xl md:text-5xl text-white tracking-tighter leading-none mb-6">
+                        Search infrastructure<br/>for institutions.
                     </h2>
-                    <p class="text-slate-300 text-lg leading-relaxed mb-8">
-                        Deploy AiYOOS across your organization. Isolated instances, custom integrations, and enterprise-grade security for research institutions, law firms, and government agencies.
+                    <p class="text-slate-400 text-base leading-relaxed mb-8">
+                        Deploy AiYOOS across your organization. Isolated single-tenant instances, AES-256 encryption at rest, and TLS 1.3 in transit—built for research institutions, law firms, and government agencies.
                     </p>
 
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="flex items-center gap-3">
-                            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-blue-400" aria-hidden="true"></iconify-icon>
+                    <div class="grid grid-cols-2 gap-x-6 gap-y-3 mb-10">
+                        <div class="flex items-center gap-2.5">
+                            <iconify-icon icon="solar:check-circle-bold" width="16" class="text-blue-400 flex-shrink-0" aria-hidden="true"></iconify-icon>
                             <span class="text-slate-300 text-sm">Single-tenant deployment</span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-blue-400" aria-hidden="true"></iconify-icon>
-                            <span class="text-slate-300 text-sm">SSO integration</span>
+                        <div class="flex items-center gap-2.5">
+                            <iconify-icon icon="solar:check-circle-bold" width="16" class="text-blue-400 flex-shrink-0" aria-hidden="true"></iconify-icon>
+                            <span class="text-slate-300 text-sm">SSO &amp; SAML integration</span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-blue-400" aria-hidden="true"></iconify-icon>
+                        <div class="flex items-center gap-2.5">
+                            <iconify-icon icon="solar:check-circle-bold" width="16" class="text-blue-400 flex-shrink-0" aria-hidden="true"></iconify-icon>
                             <span class="text-slate-300 text-sm">Custom knowledge bases</span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-blue-400" aria-hidden="true"></iconify-icon>
-                            <span class="text-slate-300 text-sm">API access</span>
+                        <div class="flex items-center gap-2.5">
+                            <iconify-icon icon="solar:check-circle-bold" width="16" class="text-blue-400 flex-shrink-0" aria-hidden="true"></iconify-icon>
+                            <span class="text-slate-300 text-sm">REST &amp; GraphQL API access</span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-blue-400" aria-hidden="true"></iconify-icon>
-                            <span class="text-slate-300 text-sm">Audit logging</span>
+                        <div class="flex items-center gap-2.5">
+                            <iconify-icon icon="solar:check-circle-bold" width="16" class="text-blue-400 flex-shrink-0" aria-hidden="true"></iconify-icon>
+                            <span class="text-slate-300 text-sm">Immutable audit logging</span>
                         </div>
-                        <div class="flex items-center gap-3">
-                            <iconify-icon icon="solar:check-circle-bold" width="20" class="text-blue-400" aria-hidden="true"></iconify-icon>
-                            <span class="text-slate-300 text-sm">Priority support</span>
+                        <div class="flex items-center gap-2.5">
+                            <iconify-icon icon="solar:check-circle-bold" width="16" class="text-blue-400 flex-shrink-0" aria-hidden="true"></iconify-icon>
+                            <span class="text-slate-300 text-sm">Dedicated support SLA</span>
                         </div>
                     </div>
 
-                    <a href="#waitlist" class="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-100 transition-colors">
+                    <a href="#waitlist" class="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-lg font-semibold hover:bg-slate-100 active:scale-[0.98] transition-all">
                         Join Enterprise Waitlist
-                        <iconify-icon icon="solar:arrow-right-linear" width="18" aria-hidden="true"></iconify-icon>
+                        <iconify-icon icon="solar:arrow-right-linear" width="16" aria-hidden="true"></iconify-icon>
                     </a>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur">
-                        <iconify-icon icon="solar:library-bold" width="32" class="text-blue-400 mb-4" aria-hidden="true"></iconify-icon>
-                        <h4 class="font-medium text-white mb-2">Research Libraries</h4>
-                        <p class="text-slate-400 text-sm">Semantic search across institutional repositories, theses, and archives.</p>
+                <!-- Right: Use-case tiles -->
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm">
+                        <iconify-icon icon="solar:library-bold" width="20" class="text-blue-400 mb-4" aria-hidden="true"></iconify-icon>
+                        <h4 class="font-semibold text-white text-sm mb-2">Research Libraries</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Semantic search across institutional repositories, dissertations, and restricted archives with full citation threading.</p>
                     </div>
-                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur">
-                        <iconify-icon icon="solar:scale-bold" width="32" class="text-blue-400 mb-4" aria-hidden="true"></iconify-icon>
-                        <h4 class="font-medium text-white mb-2">Law Firms</h4>
-                        <p class="text-slate-400 text-sm">Case law research with precedent mapping and citation tracking.</p>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm">
+                        <iconify-icon icon="solar:scale-bold" width="20" class="text-blue-400 mb-4" aria-hidden="true"></iconify-icon>
+                        <h4 class="font-semibold text-white text-sm mb-2">Law Firms</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Case law research with precedent mapping, citation graph traversal, and jurisdiction filtering.</p>
                     </div>
-                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur">
-                        <iconify-icon icon="solar:buildings-bold" width="32" class="text-blue-400 mb-4" aria-hidden="true"></iconify-icon>
-                        <h4 class="font-medium text-white mb-2">Government</h4>
-                        <p class="text-slate-400 text-sm">Policy analysis and regulatory compliance across jurisdictions.</p>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm">
+                        <iconify-icon icon="solar:buildings-bold" width="20" class="text-blue-400 mb-4" aria-hidden="true"></iconify-icon>
+                        <h4 class="font-semibold text-white text-sm mb-2">Government</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Policy analysis and multi-jurisdictional regulatory compliance, air-gapped deployment available.</p>
                     </div>
-                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur">
-                        <iconify-icon icon="solar:test-tube-bold" width="32" class="text-blue-400 mb-4" aria-hidden="true"></iconify-icon>
-                        <h4 class="font-medium text-white mb-2">R&D Labs</h4>
-                        <p class="text-slate-400 text-sm">Competitive intelligence and cross-disciplinary research synthesis.</p>
+                    <div class="p-6 rounded-2xl bg-white/5 border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-sm">
+                        <iconify-icon icon="solar:test-tube-bold" width="20" class="text-blue-400 mb-4" aria-hidden="true"></iconify-icon>
+                        <h4 class="font-semibold text-white text-sm mb-2">R&amp;D Labs</h4>
+                        <p class="text-slate-400 text-xs leading-relaxed">Competitive intelligence and cross-disciplinary synthesis across proprietary and public corpora.</p>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section id="waitlist" class="py-20 bg-blue-600">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <h2 class="font-serif-display text-4xl md:text-5xl text-white mb-6 tracking-tight">Join the Waitlist</h2>
-            <p class="text-blue-100 mb-8 text-lg">Be among the first to experience AI search built for complex questions. No commitment required.</p>
+    <section id="waitlist" class="py-24 bg-blue-800 relative overflow-hidden">
+        <!-- Subtle lighter radial for depth -->
+        <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(at 90% 10%, rgba(255, 255, 255, 0.06) 0px, transparent 55%);"></div>
 
-            <form class="waitlist-form max-w-md mx-auto">
-                <div class="flex flex-col sm:flex-row gap-2">
-                    <input type="email" name="email" placeholder="Enter your email" required class="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50 backdrop-blur">
-                    <button type="submit" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition-colors whitespace-nowrap">
-                        Join Waitlist
-                    </button>
+        <div class="max-w-7xl mx-auto px-6 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+                <!-- Left: Headline -->
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-blue-100 text-xs font-medium mb-6">
+                        <iconify-icon icon="solar:hourglass-bold" width="14" aria-hidden="true"></iconify-icon>
+                        <span>Early Access</span>
+                    </div>
+                    <h2 class="font-serif-display text-4xl md:text-5xl text-white tracking-tighter leading-none mb-6">
+                        Be first in.<br/>No commitment.
+                    </h2>
+                    <p class="text-blue-200 text-base leading-relaxed">
+                        Join the waitlist for AI search built for complex questions. Your research stays private.
+                    </p>
                 </div>
-            </form>
 
-            <p class="text-blue-200 text-xs mt-4">Be first to get early access. Your data stays private.</p>
+                <!-- Right: Form — matches Hero layout (sm:flex-row) -->
+                <div class="lg:flex lg:flex-col lg:items-end">
+                    <form class="waitlist-form w-full max-w-md">
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input type="email" name="email" placeholder="Enter your email" required class="flex-1 min-w-0 bg-white/10 border border-white/20 rounded-xl px-5 py-3.5 text-white placeholder:text-blue-300 focus:outline-none focus:ring-2 focus:ring-white/40 transition-all">
+                            <button type="submit" class="flex-shrink-0 bg-white text-blue-900 px-6 py-3.5 rounded-xl font-semibold hover:bg-blue-50 active:scale-[0.98] transition-all whitespace-nowrap">
+                                Join Waitlist
+                            </button>
+                        </div>
+                    </form>
+                    <p class="text-blue-300/60 text-xs mt-3 max-w-md w-full">No advertising model. AES-256 at rest, TLS 1.3 in transit.</p>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -602,8 +615,7 @@
                         <img src="logo_dark.png" width="96" height="32" alt="AiYOOS logo" />
                     </div>
                     <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                        All is Yes, Open Or Search.<br/>
-                        Searching just became easier
+                        All is Yes, Open Or Search.
                     </p>
                     <div class="flex gap-3">
                         <a href="https://x.com/AiYOOSSearch" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors" aria-label="AiYOOS on X (Twitter)">
@@ -710,5 +722,6 @@
             }
         });
     </script>
+    <script src="./typewriter.js" defer></script>
 </body>
 </html>
