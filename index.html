@@ -542,10 +542,15 @@
                         </div>
                     </div>
 
-                    <a href="#waitlist" class="inline-flex items-center gap-2 bg-white text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-100 transition-colors">
-                        Join Enterprise Waitlist
-                        <iconify-icon icon="solar:arrow-right-linear" width="18" aria-hidden="true"></iconify-icon>
-                    </a>
+                    <form class="waitlist-form">
+                        <input type="hidden" name="group" value="enterprise">
+                        <div class="flex flex-col sm:flex-row gap-3">
+                            <input type="email" name="email" placeholder="Enter your work email" required class="flex-1 bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400/60 backdrop-blur">
+                            <button type="submit" class="bg-white text-slate-900 px-6 py-3 rounded-lg font-medium hover:bg-slate-100 transition-colors whitespace-nowrap">
+                                Join Enterprise Waitlist
+                            </button>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
@@ -676,6 +681,7 @@
 
             const formData = new FormData(form);
             const email = formData.get('email');
+            const group = formData.get('group') || 'consumer';
 
             try {
                 const res = await fetch('https://script.google.com/macros/s/AKfycbwz-6xiYl1dhG-aexVplvYROKwXh70d5ePpWwpkJrtwq4H5-25n1g2f02zp2LW9PGfh/exec', {
@@ -683,6 +689,7 @@
                     headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify({
                         email,
+                        group,
                         userAgent: navigator.userAgent
                     })
                 });
